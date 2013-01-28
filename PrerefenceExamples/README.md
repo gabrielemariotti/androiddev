@@ -7,4 +7,10 @@ For more info about the blog :
 http://gmariotti.blogspot.com/2013/01/preferenceactivity-preferencefragment.html
 http://gmariotti.blogspot.com/2013/01/preferenceactivity-preferencefragment_28.html
 
+## Pre-Requisites
+
+The following libraries need to cloned and manually added to PreferenceExamples as library projects.
+
+ * [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
+ 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/PrerefenceExamples/PreferenceExample1.png)
