@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+ 
+    <PreferenceScreen 
+         android:title="@string/pref_nextscreen"
+     android:summary="@string/pref_nextscreen_summary">         
+         
+      <!-- You can place more preferences here that will be shown on the next screen. -->
+         <CheckBoxPreference
+                 android:key="next_screen_checkbox_preference"
+                 android:title="@string/pref_title_next_screen_toggle_preference"
+                 android:summary="@string/pref_summary_next_screen_toggle_preference">
+         </CheckBoxPreference>
+    </PreferenceScreen>
+    
+   
+    <PreferenceCategory android:title="@string/pref_notification_setting" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_otificationskey"
+            android:title="@string/pref_notifications" >
+        </CheckBoxPreference>
+ 
+        <ListPreference
+            android:key="pref_SyncFrequencykey"
+            android:entries="@array/syncFrequency"
+            android:entryValues="@array/syncFrequencyValues"
+            android:summary="@string/pref_syncFrequency_summary"
+            android:title="@string/pref_syncFrequency" />
+    </PreferenceCategory>
+ 
+</PreferenceScreen>

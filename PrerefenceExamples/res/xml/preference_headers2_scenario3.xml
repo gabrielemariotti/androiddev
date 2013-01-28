@@ -1,0 +1,22 @@
+<preference-headers
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header
+        android:fragment="it.gmariotti.android.examples.preference.GenericPreferenceFragment"
+        android:title="@string/settings_update"
+        android:summary="@string/settings_updateSummary" >
+      <extra android:name="settings" android:value="prefs_update" />
+    </header>
+	<header
+       android:fragment="it.gmariotti.android.examples.preference.GenericPreferenceFragment"
+        android:title="@string/settings_display"
+        android:summary="@string/settings_displaySummary">
+		<extra android:name="settings" android:value="prefs_display" />
+	</header>
+	<header
+        android:fragment="it.gmariotti.android.examples.preference.GenericPreferenceFragment"
+        android:title="@string/settings_notify">
+		<extra android:name="settings" android:value="prefs_notify" />
+	</header>
+	
+</preference-headers>

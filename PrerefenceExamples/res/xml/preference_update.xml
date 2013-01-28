@@ -1,0 +1,40 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/settings_update" >
+        <CheckBoxPreference
+            android:key="pref_updateWifi"
+            android:title="@string/settings_updateOnlyWifi"
+            android:summary="@string/settings_updateOnlyWifiSummary"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="pref_updateAutomatic"
+            android:title="@string/settings_updateAutomatic"
+            android:summary="@string/settings_updateAutomaticSummary"
+            android:defaultValue="true" />
+        <ListPreference 
+            android:key="pref_updateTimeout"
+            android:title="@string/settings_updateTimeout"
+            android:entries="@array/update_timeout_options"
+     		android:entryValues="@array/update_timeout_values"
+   			android:dialogTitle="@string/settings_updateTimeoutDialogTitle"
+            android:defaultValue="30"
+            android:dependency="pref_updateAutomatic"
+           />
+        <ListPreference 
+            android:key="pref_updateFrequency"
+            android:title="@string/settings_updateFrequency"
+            android:entries="@array/update_frequency_options"
+   			android:entryValues="@array/update_frequency_values"
+   			android:dialogTitle="@string/settings_updateFrequencyDialogTitle"
+   			android:dependency="pref_updateAutomatic"
+            android:defaultValue="5"
+            />
+        <CheckBoxPreference
+            android:key="pref_updateStartup"
+            android:title="@string/settings_updateOnStartup"
+            android:summary="@string/settings_updateOnStartupSummary"
+            android:defaultValue="true" />
+    </PreferenceCategory>   
+    
+
+</PreferenceScreen>

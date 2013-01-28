@@ -1,0 +1,46 @@
+<resources>
+
+    <string name="app_name">Preferences example ongoingdev</string>
+    <string name="title_activity_main">Preferences example ongoingdev</string>
+   
+    <string name="pref_nextscreen">Next Screen</string>
+    <string name="pref_nextscreen_summary">Next Screen Summary</string>
+     
+    <string name="pref_title_next_screen_toggle_preference">Next Screen toggle preference</string>
+    <string name="pref_summary_next_screen_toggle_preference">Next Screen toggle preference</string>
+    
+    <string name="pref_notification_setting">NOTIFICATION AND REMINDERS</string>
+    <string name="pref_notifications">Notification</string>
+    <string name="pref_syncFrequency">Default reminder time</string>
+    <string name="pref_syncFrequency_summary">Default reminder time summary</string>
+             
+    <string name="settings_update">Sync data</string>
+    <string name="settings_updateSummary">Auto sync,Wifi sync, power-up sync</string>
+   
+    <string name="settings_updateAutomatic">Enable background sync</string>
+    <string name="settings_updateAutomaticSummary">Automatically sync data</string>
+    <string name="settings_updateFrequency">Sync frequency</string>
+    <string name="settings_updateFrequencyDialogTitle">Choose sync frequency</string>
+    <string name="settings_updateOnlyWifi">Wi-Fi only sync</string>
+    <string name="settings_updateOnlyWifiSummary">Automatically sync data only when connected to Wi-Fi</string>
+    <string name="settings_updateOnStartup">Sync data on power-up</string>
+    <string name="settings_updateOnStartupSummary">Starts sync when powered on</string>
+    <string name="settings_updateTimeout">Sync timeout</string>
+    <string name="settings_updateTimeoutDialogTitle">Choose sync timeout</string>
+    
+    <string name="settings_display">Presentation</string>
+    <string name="settings_displaySummary">Presentation,location</string>
+    
+    <string name="settings_displayEvents">Events</string>
+    <string name="settings_displayEventsDialogTitle">Choose how much events view</string>
+    <string name="settings_displayMagnitudoMin">Min Magnitudo</string>
+    <string name="settings_displayMagnitudoMinDialogTitle">Choose.....</string>
+    <string name="settings_displayDistance"></string>
+    <string name="settings_displayCalculateDistance"></string>
+    <string name="settings_displayCalculateDistanceSummary"></string>
+    <string name="settings_displayBasePoint"></string>
+    <string name="settings_displayAccuracy"></string>
+    <string name="settings_displayAccuracySummary">Rivelazione accurata</string>
+    
+    <string name="settings_notify">Notification</string>    
+</resources>

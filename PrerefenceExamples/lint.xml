@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="NewApi">
+        <ignore path="src\it\gmariotti\android\examples\preference\DisplayPreferenceFragment.java" />
+        <ignore path="src\it\gmariotti\android\examples\preference\GenericPreferenceFragment.java" />
+        <ignore path="src\it\gmariotti\android\examples\preference\NotifyPreferenceFragment.java" />
+        <ignore path="src\it\gmariotti\android\examples\preference\PreferencesActivityScenario2.java" />
+        <ignore path="src\it\gmariotti\android\examples\preference\PrefsFragmentScenario2.java" />
+        <ignore path="src\it\gmariotti\android\examples\preference\UpdatePreferenceFragment.java" />
+    </issue>
+</lint>
