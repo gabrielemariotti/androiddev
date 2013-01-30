@@ -7,7 +7,7 @@ This repository contains example source code repository.
 
 ## Pre-Requisites
 
-The following libraries need to cloned and manually added to PreferenceExamples as library projects.
+The following libraries need to cloned and manually added to TestAbsProject as library projects.
 
  * [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
  
