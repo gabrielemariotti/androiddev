@@ -11,4 +11,4 @@ The following libraries need to cloned and manually added to PreferenceExamples 
 
  * [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
  
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TestAbsProject/Example1.png)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TestAbsProject/Example1.gif)
