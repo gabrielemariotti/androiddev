@@ -1,4 +1,4 @@
-# Preference Example
+# Sherlock Action Bar Example
 
 Quick tips/tutorials about Sherlock Action Bar.
 
