@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.gmariotti.android.examples.preference"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -24,6 +24,7 @@
         <activity android:name=".PreferencesActivityScenario3"></activity> 
         <activity android:name=".PreferencesActivityABSScenario1" android:theme="@style/AppThemeABS"></activity> 
         <activity android:name=".PreferencesActivityABSScenario3" android:theme="@style/AppThemeABS"></activity> 
+        <activity android:name=".PreferencesActivityABSScenario4" android:theme="@style/AppThemeABS"></activity>
       </application> 
 
 </manifest>

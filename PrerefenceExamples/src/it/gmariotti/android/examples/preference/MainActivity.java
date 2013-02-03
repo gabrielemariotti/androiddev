@@ -33,6 +33,7 @@ public class MainActivity extends ListActivity {
 											 "Scenario 2 : Preference Fragment",
 											 "Scenario 3 : Preference Headers (API Level 11)" ,
 											 "Scenario 3 : Preference Headers with ABS (API Level 11)",
+											 "Scenario 4 : Preference Headers with ABS all devices",
 										};
 
 	@Override
@@ -69,6 +70,9 @@ public class MainActivity extends ListActivity {
 					 toast.show();
 				 }else
 					 intent = new Intent(this, PreferencesActivityABSScenario3.class);
+				break;
+			case 5:	
+				intent = new Intent(this, PreferencesActivityABSScenario4.class);
 				break;
 		}
 		
