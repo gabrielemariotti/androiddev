@@ -34,6 +34,7 @@ public class MainActivity extends ListActivity {
 											 "Scenario 3 : Preference Headers (API Level 11)" ,
 											 "Scenario 3 : Preference Headers with ABS (API Level 11)",
 											 "Scenario 4 : Preference Headers with ABS all devices",
+											 "Preference summary (API Level 11)"
 										};
 
 	@Override
@@ -73,6 +74,13 @@ public class MainActivity extends ListActivity {
 				break;
 			case 5:	
 				intent = new Intent(this, PreferencesActivityABSScenario4.class);
+				break;
+			case 6:
+				 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+					 Toast toast=Toast.makeText(this, "Only with API 11 or higher", 5000);	
+					 toast.show();
+				 }else
+					 intent = new Intent(this, PreferencesActivitySummary.class);
 				break;
 		}
 		

@@ -40,8 +40,17 @@
     <string name="settings_displayCalculateDistanceSummary"></string>
     <string name="settings_displayBasePoint"></string>
     <string name="settings_displayAccuracy"></string>
-    <string name="settings_displayAccuracySummary">Rivelazione accurata</string>
+    <string name="settings_displayAccuracySummary">Accurate detection</string>
     
-    <string name="settings_notify">Notification</string>    
+    <string name="settings_notify">Notification</string>   
     
+    <string name="settings_serverIp">Server Name</string>
+    <string name="setting_serverIpDefault">myserver.mydomain.it</string>
+    <string name="settings_updateTimeoutnPicker">Sync timeout (numberPicker)</string>
+    <string name="settings_updateTimeoutnPickerDialogTitle">Choose sync timeout (minutes)</string>
+    <string name="settings_minute">Minute</string>
+    <string name="settings_minutes">Minutes</string> 
+    <string name="setting_notificationSound">Sound</string>
+    <string name="settings_updateFrequencyMulti">Sync frequency (multiselect)</string>
+    <string name="settings_updateFrequencyMultiDialogTitle">Choose sync frequency</string>
 </resources>
