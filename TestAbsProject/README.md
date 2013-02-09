@@ -3,6 +3,8 @@
 Quick tips/tutorials about Sherlock Action Bar.
 
 This repository contains example source code repository.
+You can find tutorial in this url (only in italian language):
+http://www.anddev.it/index.php/topic,10032.0.html
 
 
 ## Pre-Requisites
