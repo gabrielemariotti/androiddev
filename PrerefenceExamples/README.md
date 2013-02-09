@@ -7,6 +7,7 @@ For more info about the blog :
 http://gmariotti.blogspot.com/2013/01/preferenceactivity-preferencefragment.html
 http://gmariotti.blogspot.com/2013/01/preferenceactivity-preferencefragment_28.html
 http://gmariotti.blogspot.com/2013/02/preferenceactivity-preferencefragment.html
+
 http://gmariotti.blogspot.com/2013/02/preference-summary-or-secondary-text.html
 
 
