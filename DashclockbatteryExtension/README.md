@@ -9,7 +9,7 @@ http://gmariotti.blogspot.com/2013/02/how-to-write-dashclock-extension.html
 
 ## Pre-Requisites
 
-The following libraries need to cloned and manually added to PreferenceExamples as library projects.
+The following libraries need to cloned and manually added to project.
 
  * [DashClock API](http://code.google.com/p/dashclock/wiki/API)
  
