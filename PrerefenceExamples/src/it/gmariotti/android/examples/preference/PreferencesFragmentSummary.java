@@ -39,7 +39,7 @@ import android.preference.RingtonePreference;
 public class PreferencesFragmentSummary extends PreferenceFragment implements
 		OnSharedPreferenceChangeListener {
 
-	RingtonePreference mRingtoneOnListener;
+	RingtonePreference mRingtoneOnListener; 
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class PreferencesFragmentSummary extends PreferenceFragment implements
 		// Unregister the listener whenever a key changes
 		getPreferenceScreen().getSharedPreferences()
 				.unregisterOnSharedPreferenceChangeListener(this);
-		if (mRingtoneOnListener!=null) mRingtoneOnListener.setOnPreferenceChangeListener(null);
+		if (mRingtoneOnListener!=null) mRingtoneOnListener.setOnPreferenceChangeListener(null); //Pay attention: it is just an example
 	}
 
 	@Override
@@ -148,7 +148,8 @@ public class PreferencesFragmentSummary extends PreferenceFragment implements
 	 * Init summary
 	 */
 	protected void initSummary() {
-		for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
+		int pcsCount=getPreferenceScreen().getPreferenceCount();
+		for (int i = 0; i < pcsCount; i++) {
 			initPrefsSummary(getPreferenceManager().getSharedPreferences(),
 					getPreferenceScreen().getPreference(i));
 		}
@@ -161,14 +162,15 @@ public class PreferencesFragmentSummary extends PreferenceFragment implements
 			Preference p) {
 		if (p instanceof PreferenceCategory) {
 			PreferenceCategory pCat = (PreferenceCategory) p;
-			for (int i = 0; i < pCat.getPreferenceCount(); i++) {
+			int pcCatCount= pCat.getPreferenceCount();
+			for (int i = 0; i < pcCatCount; i++) {
 				initPrefsSummary(sharedPreferences, pCat.getPreference(i));
 			}
 		} else {
 			updatePrefsSummary(sharedPreferences, p);
 			if (p instanceof RingtonePreference){
 				p.setOnPreferenceChangeListener(new RingToneOnPreferenceChangeListener());
-				mRingtoneOnListener=(RingtonePreference)p;
+				mRingtoneOnListener=(RingtonePreference)p; //Pay attention: it is just an example
 			}
 		}
 	}
