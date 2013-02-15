@@ -99,25 +99,36 @@ public class BatteryExtension extends DashClockExtension {
 		boolean wirelessCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_WIRELESS;
 
 		charge = null;
+		if (usbCharge || acCharge || wirelessCharge){
+			int resId = getResources().getIdentifier("charge_"+chargePlug, "string", this.getPackageName());
+			charge = getString(resId);
+		}
+		
+		/*
 		if (usbCharge)
 			charge = getString(R.string.charge_usb);
 		else if (acCharge)
 			charge = getString(R.string.charge_ac);
 		else if (wirelessCharge)
 			charge = getString(R.string.charge_wireless);
+		*/
 
 		// Are we charging / charged?
 		int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-		boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING;
-		boolean isFull = status == BatteryManager.BATTERY_STATUS_FULL;
+		//boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING;
+		//boolean isFull = status == BatteryManager.BATTERY_STATUS_FULL;
 		// boolean isDischarging = status ==
 		// BatteryManager.BATTERY_STATUS_DISCHARGING;
 
+		int resIdCharging = getResources().getIdentifier("charging_"+status, "string", this.getPackageName());
+		charging = getString(resIdCharging);
+		
+		/*
 		charging = getString(R.string.discharging);
 		if (isFull)
 			charging = getString(R.string.full);
 		else if (isCharging)
-			charging = getString(R.string.charging);
+			charging = getString(R.string.charging);*/
 
 		// String technology =
 		// batteryStatus.getExtras().getString(BatteryManager.EXTRA_TECHNOLOGY);

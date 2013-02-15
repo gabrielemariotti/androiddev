@@ -21,9 +21,18 @@
     <string name="extension_description">Display the current battery level</string>
     <string name="extension_titlePref">Battery settings</string>
     
+    
+    <string name="charge_2">USB</string>
+    <string name="charge_1">AC</string>
+    <string name="charge_5">WIRELESS</string>
+    
     <string name="charge_usb">USB</string>
     <string name="charge_ac">AC</string>
     <string name="charge_wireless">WIRELESS</string>
+    
+    <string name="charging_2">Charging</string>
+    <string name="charging_5">Full</string>
+    <string name="charging_3">Not Charging</string>
     
     <string name="charging">Charging</string>
     <string name="discharging">Not charging</string>
