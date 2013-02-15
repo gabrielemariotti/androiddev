@@ -14,3 +14,4 @@ The following libraries need to cloned and manually added to project.
  * [DashClock API](http://code.google.com/p/dashclock/wiki/API)
  
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/DashclockbatteryExtension/Image1.png)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/DashclockbatteryExtension/device1.png)
