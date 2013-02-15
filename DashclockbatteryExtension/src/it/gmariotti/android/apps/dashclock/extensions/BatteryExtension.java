@@ -15,9 +15,14 @@
  *******************************************************************************/
 package it.gmariotti.android.apps.dashclock.extensions;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
 import android.os.BatteryManager;
+import android.preference.PreferenceManager;
 
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
@@ -26,19 +31,66 @@ public class BatteryExtension extends DashClockExtension {
 
 	private static final String TAG = "BatteryExtension";
 
+	public static final String PREF_BATTERY = "pref_Battery";
+	public static final String PREF_BATTERY_CHARGE = "pref_battery_charge";
+	public static final String PREF_BATTERY_VOLTAGE = "pref_battery_voltage";
+	public static final String PREF_BATTERY_TEMP = "pref_battery_temp";
+
+	// Prefs
+	protected boolean prefCharge = true;
+	protected boolean prefTemp = true;
+	protected boolean prefVoltage = true;
+
+	// Value
+	private int level;
+	private String charging;
+	private String charge;
+	private int voltage;
+	private int temperature;
+	private String umTemp;
+	private String umVoltage = "";
+
+	@Override
+    protected void onInitialize(boolean isReconnect) {
+        super.onInitialize(isReconnect);
+        if (!isReconnect) {
+           //Todo listener for change battery
+        }
+    }
+
+	
+	
 	@Override
 	protected void onUpdateData(int reason) {
+		//Read Preferences
+		readPreferences();
+		
+		//readBatteryData
+		readBatteryData(null);
+		
+		//Todo : preferences
+		umTemp = getString(R.string.celsius);
+		umVoltage = getString(R.string.mv);
+		
+		//publish
+		publishUpdateExtensionData();
+	}
 
-		IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-		Intent batteryStatus = getApplicationContext().registerReceiver(null,
+	private void readBatteryData(Intent batteryStatus) {
+		
+		if (batteryStatus==null){
+			IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+			batteryStatus = getApplicationContext().registerReceiver(null,
 				ifilter);
+		}
 
 		// Level
-		int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+		level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
 
-		//health
-		//int health = batteryStatus.getIntExtra(BatteryManager.EXTRA_HEALTH, -1);
-				
+		// health
+		// int health = batteryStatus.getIntExtra(BatteryManager.EXTRA_HEALTH,
+		// -1);
+
 		// How are we charging?
 		int chargePlug = batteryStatus.getIntExtra(
 				BatteryManager.EXTRA_PLUGGED, -1);
@@ -46,7 +98,7 @@ public class BatteryExtension extends DashClockExtension {
 		boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
 		boolean wirelessCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_WIRELESS;
 
-		String charge = "";
+		charge = null;
 		if (usbCharge)
 			charge = getString(R.string.charge_usb);
 		else if (acCharge)
@@ -58,25 +110,56 @@ public class BatteryExtension extends DashClockExtension {
 		int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
 		boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING;
 		boolean isFull = status == BatteryManager.BATTERY_STATUS_FULL;
-		//boolean isDischarging = status == BatteryManager.BATTERY_STATUS_DISCHARGING;
+		// boolean isDischarging = status ==
+		// BatteryManager.BATTERY_STATUS_DISCHARGING;
 
-		String charging = getString(R.string.discharging);
+		charging = getString(R.string.discharging);
 		if (isFull)
-			charging=getString(R.string.full);
+			charging = getString(R.string.full);
 		else if (isCharging)
 			charging = getString(R.string.charging);
-		
-		
-		
-		//String technology = batteryStatus.getExtras().getString(BatteryManager.EXTRA_TECHNOLOGY);
-		
-		int temperature = batteryStatus.getIntExtra(
+
+		// String technology =
+		// batteryStatus.getExtras().getString(BatteryManager.EXTRA_TECHNOLOGY);
+
+		temperature = batteryStatus.getIntExtra(
 				BatteryManager.EXTRA_TEMPERATURE, 0);
-		int voltage = batteryStatus
+		voltage = batteryStatus
 				.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);
 
-		String umTemp=getString(R.string.celsius);
-		String umMv=getString(R.string.mv);
+	}
+
+	/**
+	 * publishUpdata
+	 */
+	private void publishUpdateExtensionData() {
+		
+		//Intent
+		Intent powerUsageIntent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY);
+		ResolveInfo resolveInfo = getPackageManager().resolveActivity(
+				powerUsageIntent, 0);
+		
+		String and="";
+		StringBuffer sb= new StringBuffer();
+		if (prefCharge && charge!=null){
+			sb.append(charge);
+			and=" - ";
+		}
+		
+		if (prefTemp){
+			sb.append(and);
+			sb.append(temperature/10);
+			sb.append(umTemp);
+			and=" - ";
+		}
+		
+		if (prefVoltage){
+			sb.append(and);
+			sb.append(voltage);
+			sb.append(umVoltage);
+			and=" - ";
+		}
+		
 		
 		// Publish the extension data update.
 		publishUpdate(new ExtensionData()
@@ -85,8 +168,22 @@ public class BatteryExtension extends DashClockExtension {
 				.status("" + level + "%")
 				.expandedTitle("" + level + "% " + charging)
 				.expandedBody(
-						charge +  " - " + temperature/10 + umTemp+" - "
-								+ voltage+umMv));
-
+						sb.toString())
+				.clickIntent(powerUsageIntent));
 	}
+	
+
+	/**
+	 * Read preference
+	 */
+	private void readPreferences() {
+		// Get preference value.
+		SharedPreferences sp = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		prefVoltage = sp.getBoolean(PREF_BATTERY_VOLTAGE, true);
+		prefCharge = sp.getBoolean(PREF_BATTERY_CHARGE, true);
+		prefTemp = sp.getBoolean(PREF_BATTERY_TEMP, true);
+	}
+	
+	
 }

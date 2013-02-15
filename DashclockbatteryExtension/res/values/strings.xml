@@ -19,15 +19,25 @@
     
     <string name="extension_title">Battery</string>
     <string name="extension_description">Display the current battery level</string>
+    <string name="extension_titlePref">Battery settings</string>
     
     <string name="charge_usb">USB</string>
     <string name="charge_ac">AC</string>
     <string name="charge_wireless">WIRELESS</string>
     
     <string name="charging">Charging</string>
-    <string name="discharging">Discharging</string>
+    <string name="discharging">Not charging</string>
     <string name="full">Full</string>
     
     <string name="celsius">°C</string>
     <string name="mv">mV</string>
+    
+    <string name="pref_charge">Charge</string>
+    <string name="pref_chargeSummary">Display information about charge</string>
+    
+    <string name="pref_temp">Temperature</string>
+    <string name="pref_tempSummary">Display information about temperature</string>
+    
+    <string name="pref_voltage">Voltage</string>
+    <string name="pref_voltageSummary">Display information about voltage</string>
 </resources>
