@@ -8,6 +8,7 @@ For more info about the blog :
  * [Preference Headers] (http://gmariotti.blogspot.com/2013/01/preferenceactivity-preferencefragment_28.html)
  * [PreferenceFragment and Headers with older versions] (http://gmariotti.blogspot.com/2013/02/preferenceactivity-preferencefragment.html)
  * [Preference Summary or Secondary Text](http://gmariotti.blogspot.com/2013/02/preference-summary-or-secondary-text.html)
+ * [Making your application’s data usage preferences available from system settings](http://gmariotti.blogspot.com/2013/02/making-your-applications-data-usage.html)
 
 
 ## Pre-Requisites
@@ -20,6 +21,8 @@ The following libraries need to cloned and manually added to PreferenceExamples 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/PrerefenceExamples/PreferenceMenu.gif)
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/PrerefenceExamples/PreferenceExample.gif)
+
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/PrerefenceExamples/PreferenceDataUsage.gif)
 
 
 Credits
