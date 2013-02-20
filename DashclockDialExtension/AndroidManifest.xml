@@ -1,0 +1,44 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.gmariotti.android.apps.dashclock.extensions.dial"
+    android:versionCode="2"
+    android:versionName="1.1" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
+
+    <!-- Contact permissions -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
+        <service
+            android:name=".DialExtension"
+            android:icon="@drawable/ic_extension_dial"
+            android:label="@string/extension_title"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="1" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <!-- A settings activity -->
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DialSettingsActivity" />
+        </service>
+
+        <activity
+            android:name=".DialSettingsActivity"
+            android:exported="true"
+            android:label="@string/extension_titlePref" />
+    </application>
+
+</manifest>
