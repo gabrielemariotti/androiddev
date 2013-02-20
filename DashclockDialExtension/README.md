@@ -5,7 +5,7 @@ How to write a DashClock Extension: Dial Extension example
 This repository contains example source code
 
 For more info about the blog : 
-
+http://gmariotti.blogspot.com/2013/02/how-to-write-dashclock-extension-dial.html
 
 ## Pre-Requisites
 
