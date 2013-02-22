@@ -17,11 +17,11 @@ The following libraries need to cloned and manually added to project.
 
  * [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
 
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AntiPatternExample/Main.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AntiPatternExamples/Main.gif)
  
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AntiPatternExample/Image1.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AntiPatternExamples/Image1.gif)
 
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AntiPatternExample/freezing.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AntiPatternExamples/freezing.gif)
 
 
 Credits
