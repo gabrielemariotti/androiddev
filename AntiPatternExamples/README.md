@@ -1,11 +1,11 @@
-# Battery Extension for Dash Clock
+# AntiPattern Examples
 
-AntiPattern Example: WHAT NOT TO DO !!
+**AntiPattern Examples: WHAT NOT TO DO !!**
 
 **The worst thing that can happen to your app's responsiveness is an "Application Not Responding" (ANR) dialog.**
 It is very important to understand which methods run in *Main Thread*.
 
-This repository contains example source code
+This repository contains examples source code
 
 For more info about the blog : 
 * [AntiPattern: freezing a UI with Broadcast Receiver] (http://gmariotti.blogspot.com/2013/02/antipattern-freezing-ui-with-broadcast.html)
