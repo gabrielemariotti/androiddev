@@ -5,6 +5,7 @@ How to write a DashClock Extension: Whatsapp Extension example
 This repository contains example source code
 
 For more info about the blog : 
+http://gmariotti.blogspot.com/2013/02/how-to-write-dashclock-extension_23.html
 
 **It uses a Accessibility Service.You must activate accessibility service from Accessibility item in Android Settings**
 
@@ -14,7 +15,7 @@ The following libraries need to cloned and manually added to project.
 
  * [DashClock API](http://code.google.com/p/dashclock/wiki/API)
  
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/DashclockWhatsappExtension/image1.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/DashclockWhatsappExtension/Image1.gif)
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/DashclockWhatsappExtension/Image2.gif)
 
