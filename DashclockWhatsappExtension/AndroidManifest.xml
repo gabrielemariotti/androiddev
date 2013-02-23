@@ -1,0 +1,46 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.gmariotti.android.examples.dashclock.extensions.wht"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+         android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
+         
+         <service
+            android:name=".WhatsappExtension"
+            android:icon="@drawable/ic_extension_wht"
+            android:label="@string/extension_title"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="1" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+          
+            <!-- A settings activity -->
+          
+        </service>
+        
+         <service android:name=".WhtNotificationService" android:enabled="true"
+              android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+        	<intent-filter>
+            	<action android:name="android.accessibilityservice.AccessibilityService" />
+        	</intent-filter>
+        	<meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibilityservice" />
+    	</service>
+        
+    </application>
+
+</manifest>

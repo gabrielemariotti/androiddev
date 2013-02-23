@@ -1,0 +1,13 @@
+<resources>
+    
+    <string name="app_name">Unofficial Whatsapp Extension for DashClock</string>
+    
+    <string name="extension_title">Unofficial Whatsapp</string>
+    <string name="extension_description">View whatsapp notitications</string>
+    <string name="accessibility_service_description"> This app DOES NOT collect any information.This app will access only to your Whatsapp notifications</string>
+    
+    <plurals name="messagecount">
+        <item quantity="one">1 new message</item>
+        <item quantity="other">%d new messages</item>
+    </plurals>
+</resources>
