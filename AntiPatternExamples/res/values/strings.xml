@@ -5,6 +5,7 @@
     
     <!--  Freezing Activity  -->
     <string name="title_freezing_receiver">Freezing Activity with Broadcast Receiver</string>
+    <string name="title_freezing_asynctask">Freezing Activity with Async Task</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_newevent">New Event</string>
     
@@ -12,6 +13,8 @@
     <string name="text_clickforevent">Click for a new event</string>
     <string name="text_newevent">New event</string>
     <string name="text_broadcast">New Intent Broadcast</string>
+    <string name="text_asynctask">Async Task</string>
 	
+    <string name="asycn_freezing">Click Refresh Button to launch the async task. Click Add Button for a new event</string>
     
 </resources>

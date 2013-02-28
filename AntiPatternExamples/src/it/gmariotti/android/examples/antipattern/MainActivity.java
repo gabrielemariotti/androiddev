@@ -27,7 +27,8 @@ public class MainActivity extends SherlockListActivity {
 
 	
 
-	public static final String[] options = { "Scenario 1: Freezing the UI with a BroadcastReceiver"
+	public static final String[] options = { "Scenario 1: Freezing the UI with a BroadcastReceiver" ,
+											 "Scenario 2: Freezing the UI with a AsyncTask"
 										};
 
 	@Override
@@ -45,6 +46,9 @@ public class MainActivity extends SherlockListActivity {
 			case 0:
 				intent = new Intent(this, FreezingActivity.class);
 				break;
+			case 1:
+				intent = new Intent(this, AsyncFreezingActivity.class);
+				break;	
 		}
 		
 		if (intent!=null)

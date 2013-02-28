@@ -31,6 +31,14 @@
                 android:value="it.gmariotti.android.examples.antipattern.MainActivity" />
         </activity>
         
+         <activity
+            android:name="it.gmariotti.android.examples.antipattern.AsyncFreezingActivity"
+            android:label="@string/title_freezing_asynctask"
+            android:parentActivityName="it.gmariotti.android.examples.antipattern.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.antipattern.MainActivity" />
+        </activity>
+        
     </application>
 
 </manifest>
