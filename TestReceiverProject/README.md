@@ -1,11 +1,11 @@
 # Broadcast Receiver Examples
 
 This repository contains examples source code
-* [How to Register Broadcast Receiver programmatically]
-* [How to Register Broadcast Receiver in Manifest.xml]
-* [Local Broadcast Manager]
-* [Freezing the UI with a BroadcastReceiver]
-* [OrderedBroadcast]
+* How to Register Broadcast Receiver programmatically
+* How to Register Broadcast Receiver in Manifest.xml
+* Local Broadcast Manager
+* Freezing the UI with a BroadcastReceiver
+* OrderedBroadcast
 
 											 
 For more info about the tutorial : 
@@ -19,9 +19,9 @@ The following libraries need to cloned and manually added to project.
  * [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
 
 
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TestReceiverPjoject/Main.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TestReceiverProject/Main.gif)
  
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TestReceiverPjoject/testReceiver.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TestReceiverProject/testReceiver.gif)
 
 
 Credits
