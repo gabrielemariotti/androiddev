@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.gmariotti.android.examples.receiver"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="it.gmariotti.android.examples.receiver.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.receiver.TestReceiverActivity"
+            android:label="@string/title_activity_test_receiver" 
+             android:parentActivityName="it.gmariotti.android.examples.receiver.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.receiver.MainActivity" />
+        </activity>
+        
+        <activity
+            android:name="it.gmariotti.android.examples.receiver.LocalBroadcastActivity"
+            android:label="@string/title_activity_lbm_test_receiver" 
+            android:parentActivityName="it.gmariotti.android.examples.receiver.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.receiver.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="it.gmariotti.android.examples.receiver.FreezingActivity"
+            android:label="@string/title_activity_freezy_test_receiver" android:parentActivityName="it.gmariotti.android.examples.receiver.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.receiver.MainActivity" />
+        </activity>
+        
+         <activity
+            android:name="it.gmariotti.android.examples.receiver.OrderedBroadcastActivity"
+            android:label="@string/title_activity_ordered_broadcast" android:parentActivityName="it.gmariotti.android.examples.receiver.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.receiver.MainActivity" />
+        </activity>
+        
+        <service android:name="it.gmariotti.android.examples.receiver.ReceiverTestService" >
+        </service>
+
+        <service android:name="it.gmariotti.android.examples.receiver.LocalBroadcastReceiverTestService" >
+        </service>
+        
+        <receiver android:name="it.gmariotti.android.examples.receiver.ConnectivityChangeReceiver" android:enabled="false" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name="it.gmariotti.android.examples.receiver.OrderReceiver1"  >
+            <intent-filter android:priority="100">
+                <action android:name="it.gmariotti.android.example.receiver.intent.action.TEST_ORDER" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name="it.gmariotti.android.examples.receiver.OrderReceiver2a"  >
+            <intent-filter android:priority="200">
+                <action android:name="it.gmariotti.android.example.receiver.intent.action.TEST_ORDER" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name="it.gmariotti.android.examples.receiver.OrderReceiver2b"  >
+            <intent-filter android:priority="200">
+                <action android:name="it.gmariotti.android.example.receiver.intent.action.TEST_ORDER" />
+            </intent-filter>
+        </receiver>
+        
+        
+        <receiver android:name="it.gmariotti.android.examples.receiver.OrderReceiver3"  >
+            <intent-filter android:priority="300">
+                <action android:name="it.gmariotti.android.example.receiver.intent.action.TEST_ORDER" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
