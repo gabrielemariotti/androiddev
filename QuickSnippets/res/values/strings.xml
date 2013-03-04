@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quick Snippets</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_retrieve_manifest_info">Retrieve info from Manifest</string>
+    <string name="title_activity_plural_forms">Plural forms</string>
+
+    <plurals name="books">
+        <item quantity="zero">No books</item>
+        <item quantity="one">One book</item>
+        <item quantity="two">Two books</item>
+        <item quantity="few">Few books</item>
+        <item quantity="many">Many books</item>
+        <item quantity="other">%d books</item>
+    </plurals>
+
+</resources>
