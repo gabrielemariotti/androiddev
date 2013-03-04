@@ -4,7 +4,7 @@
 This repository contains example source code repository for Ongoing dev blog.
 For more info about the blog : 
  * [Retrieve info from Manifest.xml] (http://gmariotti.blogspot.com/2013/02/quick-snippetretrieve-info-from.html)
- * [Plurals form] ()
+ * [Plurals form] (http://gmariotti.blogspot.com/2013/03/snippet-android-plurals-form.html)
  
 
 ## Pre-Requisites
