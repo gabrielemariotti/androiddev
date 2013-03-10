@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.gmariotti.android.examples.antipattern"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.2" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -38,6 +38,26 @@
              <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.gmariotti.android.examples.antipattern.MainActivity" />
         </activity>
+        
+        <activity
+            android:name="it.gmariotti.android.examples.antipattern.ServiceFreezingActivity"
+            android:label="@string/title_freezing_service"
+            android:parentActivityName="it.gmariotti.android.examples.antipattern.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.antipattern.MainActivity" />
+        </activity>
+        
+        <activity
+            android:name="it.gmariotti.android.examples.antipattern.IntentServiceFreezingActivity"
+            android:label="@string/title_freezing_intentservice"
+            android:parentActivityName="it.gmariotti.android.examples.antipattern.MainActivity" >
+             <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.antipattern.MainActivity" />
+        </activity>
+        
+        <service android:name=".ServiceFreezy"></service>
+        
+        <service android:name=".IntentServiceFreezy"></service>  
         
     </application>
 
