@@ -13,6 +13,8 @@ For more info about the blog :
 
 * [AntiPattern: freezing a UI with AsyncTask] (http://gmariotti.blogspot.com/2013/02/antipattern-freezing-ui-with-asynctask.html)
 
+* [AntiPattern: freezing a UI with a Service and an Intent Service] (http://gmariotti.blogspot.com/2013/03/antipattern-freezing-ui-with-service.html)
+
 
 ## Pre-Requisites
 
