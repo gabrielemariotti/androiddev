@@ -1,6 +1,6 @@
 # Google Account Examples
 
-**How to manage Google Account with Google Play Services.
+**How to manage Google Account with Google Play Services.**
 
 This repository contains examples source code
 
