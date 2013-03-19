@@ -2,7 +2,21 @@
 <resources>
 
     <string name="app_name">TestAbsProject</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Items in ActionBar</string>
+    
     <string name="menu_settings">Settings</string>
     <string name="menu_refresh">Refresh</string>
+    <string name="menu_add">Add</string>
+    
+    
+    <string name="action_add">Add</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="title_activity_action_bar">ActionBarActivity</string>
+    
+    <string name="title_activity_sherlock_action_bar">SherlockActionBarActivity</string>
+    <string name="title_activity_fragment">FragmentActivity</string>
+    <string name="title_activity_sherlockfragment">SherlockFragmentActivity</string>
+    <string name="hello_blank_fragment"></string>
+
 </resources>

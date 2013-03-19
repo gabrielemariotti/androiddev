@@ -22,6 +22,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.testabsproject.ActionBarActivity"
+            android:label="@string/title_activity_action_bar"
+            android:parentActivityName="it.gmariotti.android.examples.testabsproject.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.testabsproject.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.testabsproject.SherlockActionBarActivity"
+            android:label="@string/title_activity_sherlock_action_bar"
+            android:parentActivityName="it.gmariotti.android.examples.testabsproject.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.testabsproject.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.testabsproject.MyFragmentActivity"
+            android:label="@string/title_activity_fragment"
+            android:parentActivityName="it.gmariotti.android.examples.testabsproject.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.testabsproject.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.testabsproject.MySherlockFragmentActivity"
+            android:label="@string/title_activity_sherlockfragment"
+            android:parentActivityName="it.gmariotti.android.examples.testabsproject.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.testabsproject.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
