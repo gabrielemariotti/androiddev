@@ -4,16 +4,22 @@ Quick tips/tutorials about Sherlock Action Bar.
 
 This repository contains example source code repository.
 You can find tutorial in this url (only in italian language):
-http://www.anddev.it/index.php/topic,10032.0.html
+
+[How to insert SherlockActionBar in a project] (http://www.anddev.it/index.php/topic,10032.0.html)
+[How to use Options Menu in ActionBar, SherlockActionBar with Fragment] (http://www.anddev.it/index.php/topic,10421.0.html)
+
+[OptionsMenu in ActionBar, SherlockActionBar and Fragment]
+
 
 You can find:
-	*How to create OptionsMenu in ActionBar
+
+	* [How to create OptionsMenu in ActionBar]
 	
- 	*How to create OptionsMenu in SherlockActionBar
+ 	* [How to create OptionsMenu in SherlockActionBar]
  	
- 	*How to create OptionsMenu in ActionBar with Fragment
+ 	* [How to create OptionsMenu in ActionBar with Fragment]
  	
-	*How to create OptionsMenu in SherlockActionBar with Fragment
+	* [How to create OptionsMenu in SherlockActionBar with Fragment]
 	
 
 ## Pre-Requisites
