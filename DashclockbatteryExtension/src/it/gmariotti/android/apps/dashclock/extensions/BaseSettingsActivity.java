@@ -6,6 +6,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -88,7 +89,10 @@ public abstract class BaseSettingsActivity extends PreferenceActivity {
                     }
                 }
 
-            } else {
+            } else if (preference instanceof CheckBoxPreference) { 
+              // Display default summary
+            	
+            }else {
                 // For all other preferences, set the summary to the value's
                 // simple string representation.
                 preference.setSummary(stringValue);
