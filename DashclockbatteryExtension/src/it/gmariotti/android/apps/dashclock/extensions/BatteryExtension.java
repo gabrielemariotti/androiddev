@@ -51,37 +51,43 @@ public class BatteryExtension extends DashClockExtension {
 	private String umVoltage = "";
 
 	@Override
-    protected void onInitialize(boolean isReconnect) {
-        super.onInitialize(isReconnect);
-        if (!isReconnect) {
-           //Todo listener for change battery
-        }
-    }
+	protected void onInitialize(boolean isReconnect) {
+		super.onInitialize(isReconnect); 
+		if (!isReconnect) {
+			//Listener for change battery: I prefer listen only for power change. 
+			//You can change it with ACTION_BATTERY_CHANGED
+			IntentFilter filter=new IntentFilter();
+			filter.addAction(Intent.ACTION_POWER_CONNECTED);
+			filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+			
+			getApplicationContext().registerReceiver(mBatteryReceiver,
+					filter);
+		}
+	}
 
-	
-	
 	@Override
 	protected void onUpdateData(int reason) {
-		//Read Preferences
+		// Read Preferences
 		readPreferences();
-		
-		//readBatteryData
+
+		// readBatteryData
 		readBatteryData(null);
-		
-		//Todo : preferences
+
+		// Todo : preferences
 		umTemp = getString(R.string.celsius);
 		umVoltage = getString(R.string.mv);
-		
-		//publish
+
+		// publish
 		publishUpdateExtensionData();
 	}
 
 	private void readBatteryData(Intent batteryStatus) {
-		
-		if (batteryStatus==null){
-			IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+
+		if (batteryStatus == null) {
+			IntentFilter ifilter = new IntentFilter(
+					Intent.ACTION_BATTERY_CHANGED);
 			batteryStatus = getApplicationContext().registerReceiver(null,
-				ifilter);
+					ifilter);
 		}
 
 		// Level
@@ -99,44 +105,42 @@ public class BatteryExtension extends DashClockExtension {
 		boolean wirelessCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_WIRELESS;
 
 		charge = null;
-		if (usbCharge || acCharge || wirelessCharge){
-			int resId = getResources().getIdentifier("charge_"+chargePlug, "string", this.getPackageName());
+		if (usbCharge || acCharge || wirelessCharge) {
+			int resId = getResources().getIdentifier("charge_" + chargePlug,
+					"string", this.getPackageName());
 			charge = getString(resId);
 		}
-		
+
 		/*
-		if (usbCharge)
-			charge = getString(R.string.charge_usb);
-		else if (acCharge)
-			charge = getString(R.string.charge_ac);
-		else if (wirelessCharge)
-			charge = getString(R.string.charge_wireless);
-		*/
+		 * if (usbCharge) charge = getString(R.string.charge_usb); else if
+		 * (acCharge) charge = getString(R.string.charge_ac); else if
+		 * (wirelessCharge) charge = getString(R.string.charge_wireless);
+		 */
 
 		// Are we charging / charged?
 		int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-		//boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING;
-		//boolean isFull = status == BatteryManager.BATTERY_STATUS_FULL;
+		// boolean isCharging = status ==
+		// BatteryManager.BATTERY_STATUS_CHARGING;
+		// boolean isFull = status == BatteryManager.BATTERY_STATUS_FULL;
 		// boolean isDischarging = status ==
 		// BatteryManager.BATTERY_STATUS_DISCHARGING;
 
-		int resIdCharging = getResources().getIdentifier("charging_"+status, "string", this.getPackageName());
+		int resIdCharging = getResources().getIdentifier("charging_" + status,
+				"string", this.getPackageName());
 		charging = getString(resIdCharging);
-		
+
 		/*
-		charging = getString(R.string.discharging);
-		if (isFull)
-			charging = getString(R.string.full);
-		else if (isCharging)
-			charging = getString(R.string.charging);*/
+		 * charging = getString(R.string.discharging); if (isFull) charging =
+		 * getString(R.string.full); else if (isCharging) charging =
+		 * getString(R.string.charging);
+		 */
 
 		// String technology =
 		// batteryStatus.getExtras().getString(BatteryManager.EXTRA_TECHNOLOGY);
 
 		temperature = batteryStatus.getIntExtra(
 				BatteryManager.EXTRA_TEMPERATURE, 0);
-		voltage = batteryStatus
-				.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);
+		voltage = batteryStatus.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);
 
 	}
 
@@ -144,45 +148,39 @@ public class BatteryExtension extends DashClockExtension {
 	 * publishUpdata
 	 */
 	private void publishUpdateExtensionData() {
-		
-		//Intent
+
+		// Intent
 		Intent powerUsageIntent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY);
-		ResolveInfo resolveInfo = getPackageManager().resolveActivity(
-				powerUsageIntent, 0);
-		
-		String and="";
-		StringBuffer sb= new StringBuffer();
-		if (prefCharge && charge!=null){
+		// ResolveInfo resolveInfo =
+		// getPackageManager().resolveActivity(powerUsageIntent, 0);
+
+		String and = "";
+		StringBuffer sb = new StringBuffer();
+		if (prefCharge && charge != null) {
 			sb.append(charge);
-			and=" - ";
+			and = " - ";
 		}
-		
-		if (prefTemp){
+
+		if (prefTemp) {
 			sb.append(and);
-			sb.append(temperature/10);
+			sb.append(temperature / 10);
 			sb.append(umTemp);
-			and=" - ";
+			and = " - ";
 		}
-		
-		if (prefVoltage){
+
+		if (prefVoltage) {
 			sb.append(and);
 			sb.append(voltage);
 			sb.append(umVoltage);
-			and=" - ";
+			and = " - ";
 		}
-		
-		
+
 		// Publish the extension data update.
-		publishUpdate(new ExtensionData()
-				.visible(true)
-				.icon(R.drawable.ic_extension_battery)
-				.status("" + level + "%")
+		publishUpdate(new ExtensionData().visible(true)
+				.icon(R.drawable.ic_extension_battery).status("" + level + "%")
 				.expandedTitle("" + level + "% " + charging)
-				.expandedBody(
-						sb.toString())
-				.clickIntent(powerUsageIntent));
+				.expandedBody(sb.toString()).clickIntent(powerUsageIntent));
 	}
-	
 
 	/**
 	 * Read preference
@@ -195,6 +193,12 @@ public class BatteryExtension extends DashClockExtension {
 		prefCharge = sp.getBoolean(PREF_BATTERY_CHARGE, true);
 		prefTemp = sp.getBoolean(PREF_BATTERY_TEMP, true);
 	}
+
 	
-	
+	private BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			onUpdateData(UPDATE_REASON_CONTENT_CHANGED);
+		}
+	};
+
 }
