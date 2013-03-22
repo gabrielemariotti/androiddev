@@ -3,7 +3,7 @@
 This repository contains examples source code
 
 For more info about the blog : 
-* [GUI like Google Keep] (http://gmariotti.blogspot.com/2013/02/antipattern-freezing-ui-with-broadcast.html)
+* [GUI like Google Keep] (http://gmariotti.blogspot.com/2013/03/gui-like-google-keep.html)
 
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GuiExample/device1.gif)
