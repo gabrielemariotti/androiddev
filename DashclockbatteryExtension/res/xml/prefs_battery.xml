@@ -14,31 +14,44 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *******************************************************************************/
+ *******************************************************************************/
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-  
-    <CheckBoxPreference
+    <PreferenceCategory android:title="@string/pref_display" >
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_battery_charge"
-            android:title="@string/pref_charge"
-            android:summary="@string/pref_chargeSummary" >
-     </CheckBoxPreference>
-
-	 <CheckBoxPreference
+            android:summary="@string/pref_chargeSummary"
+            android:title="@string/pref_charge" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_battery_temp"
-            android:title="@string/pref_temp"
-            android:summary="@string/pref_tempSummary" >
-     </CheckBoxPreference>
-
-	 
-	 <CheckBoxPreference
+            android:summary="@string/pref_tempSummary"
+            android:title="@string/pref_temp" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_battery_voltage"
-            android:title="@string/pref_voltage"
-            android:summary="@string/pref_voltageSummary" >
-     </CheckBoxPreference>
+            android:summary="@string/pref_voltageSummary"
+            android:title="@string/pref_voltage" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_battery_health"
+            android:summary="@string/pref_healthSummary"
+            android:title="@string/pref_health" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/pref_update" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_battery_realtime"
+            android:summary="@string/pref_realtimeSummary"
+            android:title="@string/pref_realtime" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
 
 </PreferenceScreen>
