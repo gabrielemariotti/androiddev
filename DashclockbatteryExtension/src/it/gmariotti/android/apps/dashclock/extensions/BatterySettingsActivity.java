@@ -39,6 +39,9 @@ public class BatterySettingsActivity extends BaseSettingsActivity {
         bindPreferenceSummaryToValue(findPreference(BatteryExtension.PREF_BATTERY_CHARGE));
         bindPreferenceSummaryToValue(findPreference(BatteryExtension.PREF_BATTERY_TEMP));
         bindPreferenceSummaryToValue(findPreference(BatteryExtension.PREF_BATTERY_VOLTAGE));
+        bindPreferenceSummaryToValue(findPreference(BatteryExtension.PREF_BATTERY_HEALTH));
+        bindPreferenceSummaryToValue(findPreference(BatteryExtension.PREF_BATTERY_REALTIME));
+        
     }
 	
 	
