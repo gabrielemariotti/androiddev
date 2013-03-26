@@ -18,7 +18,7 @@
     <string name="app_name">Battery Extension for DashClock</string>
     
     <string name="extension_title">Battery</string>
-    <string name="extension_description">Display the current battery level</string>
+    <string name="extension_description">Display information about the battery</string>
     <string name="extension_titlePref">Battery settings</string>
     
     
@@ -33,20 +33,39 @@
     <string name="charging_2">Charging</string>
     <string name="charging_5">Full</string>
     <string name="charging_3">Not Charging</string>
+    <string name="charging_4">Discharging</string>
     
     <string name="charging">Charging</string>
     <string name="discharging">Not charging</string>
     <string name="full">Full</string>
     
+    <string name="battery_health_1">Unknown</string>
+    <string name="battery_health_2">Good</string>
+    <string name="battery_health_3">Overheat</string>
+    <string name="battery_health_4">Dead</string>
+    <string name="battery_health_5">OverVoltage</string>
+    <string name="battery_health_6">Unspecified</string>
+    <string name="battery_health_7">Cold</string>
+    
     <string name="celsius">°C</string>
     <string name="mv">mV</string>
     
+    <string name="pref_display">Battery details</string>
+    <string name="pref_update">Update</string>
+    
     <string name="pref_charge">Charge</string>
-    <string name="pref_chargeSummary">Display information about charge</string>
+    <string name="pref_chargeSummary">Display information about current power type</string>
     
     <string name="pref_temp">Temperature</string>
     <string name="pref_tempSummary">Display information about temperature</string>
     
     <string name="pref_voltage">Voltage</string>
     <string name="pref_voltageSummary">Display information about voltage</string>
+    
+    <string name="pref_health">Health</string>
+    <string name="pref_healthSummary">Display information about health</string>
+    
+    <string name="pref_realtime">Real time updates</string>
+    <string name="pref_realtimeSummary">Update as soon as something changes</string>
+    
 </resources>
