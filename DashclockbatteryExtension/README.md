@@ -7,6 +7,9 @@ This repository contains example source code
 For more info about the blog : 
 http://gmariotti.blogspot.com/2013/02/how-to-write-dashclock-extension.html
 
+###You can find a full and updated version in this repository 
+https://github.com/gabrielemariotti/dashclockbattery
+
 ## Pre-Requisites
 
 The following libraries need to cloned and manually added to project.
