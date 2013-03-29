@@ -4,10 +4,10 @@ This repository contains examples source code
 
 For more info about the blog : 
 * [GUI like Google Keep] (http://gmariotti.blogspot.com/2013/03/gui-like-google-keep.html)
-
+* [GUI like Evernote Menu] (http://gmariotti.blogspot.com/2013/03/gui-like-evernote-menu.html)
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GuiExample/device1.gif)
- 
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GuiExample/gui1.gif)
 
 Credits
 -------
