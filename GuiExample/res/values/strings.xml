@@ -2,14 +2,15 @@
 <resources>
 
     <string name="app_name">GuiExample</string>
-    
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
-    
     <string name="hello_world">Hello world!</string>
-    
     <string name="title_keepgui">Like Google Keep GUI</string>
     <string name="first_title">Title</string>
-	<string name="buttondesc">Button</string>
+    <string name="buttondesc">Button</string>
+    
+    <string name="title_activity_evernote_menu">EvernoteMenuActivity</string>
+    <string name="evernote_username">Gabriele Mariotti</string>
+    <string name="evernote_lastupdate">Last sync Mar 27......</string>
 
 </resources>

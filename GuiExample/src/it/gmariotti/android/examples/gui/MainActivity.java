@@ -24,9 +24,8 @@ import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
 
-	public static final String[] options = {
-			"Snippet 1: Google Keep",
-			 };
+	public static final String[] options = { "Snippet 1: Google Keep",
+			"Snippet 2: Evernote Menu" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +42,10 @@ public class MainActivity extends ListActivity {
 		default:
 		case 0:
 			intent = new Intent(this, KeepGuiActivity.class);
+			break;
+
+		case 1:
+			intent = new Intent(this, EvernoteMenuActivity.class);
 			break;
 		}
 

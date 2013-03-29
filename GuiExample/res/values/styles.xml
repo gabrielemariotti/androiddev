@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -16,6 +16,8 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+
+    <!-- Google Keep -->
 
     <style name="Theme.Keep" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Keep</item>
@@ -71,4 +73,46 @@
         <item name="android:inputType">textCapSentences</item>
     </style>
 
+    <!-- Evernote menu -->
+
+    <style name="Theme.Evernote" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Evernote</item>
+        <item name="android:windowBackground">@color/default_evernote_background</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="ActionBar.Solid.Evernote" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_evernote</item>
+        <item name="android:titleTextStyle">@style/Evernote.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Evernote.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/evernote_title</item>
+    </style>
+
+    <style name="Box_evernote_outer">
+        <item name="android:layout_marginTop">?android:actionBarSize</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+    </style>
+
+    <style name="evernote_account">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/evernote_title</item>
+    </style>
+
+     <style name="evernote_box">
+         <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+    
+    <style name="evernote_button_text">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:shadowColor">#330000</item>
+        <item name="android:shadowDy">1</item>
+    </style>
+    
 </resources>

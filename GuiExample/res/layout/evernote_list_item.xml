@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/evernote_listitem_h"
+    android:background="@color/default_evernote_background"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/ev_list_image"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/evernote_listitem_icon_h"
+        android:paddingLeft="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/ev_list_text"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:paddingLeft="5dp"
+        android:layout_toRightOf="@id/ev_list_image"
+        android:textColor="@color/evernote_title"
+        android:textSize="@dimen/evernote_list_text" />
+
+    <TextView
+        android:id="@+id/ev_list_textnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/evernote_title"
+        android:textSize="@dimen/evernote_list_text" />
+
+    <View
+        android:id="@+id/ev_list_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/evernote_list_divider" />
+
+</RelativeLayout>

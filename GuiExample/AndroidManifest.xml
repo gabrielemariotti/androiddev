@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.gmariotti.android.examples.gui"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -25,7 +25,20 @@
         <activity
             android:name="it.gmariotti.android.examples.gui.KeepGuiActivity"
             android:label="@string/title_keepgui"
-            android:theme="@style/Theme.Keep" >
+            android:theme="@style/Theme.Keep" 
+            android:parentActivityName="it.gmariotti.android.examples.gui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.gui.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.gui.EvernoteMenuActivity"
+            android:theme="@style/Theme.Evernote"
+            android:label="@string/title_activity_evernote_menu"
+            android:parentActivityName="it.gmariotti.android.examples.gui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.gui.MainActivity" />
         </activity>
     </application>
 
