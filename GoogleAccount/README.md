@@ -7,6 +7,7 @@ This repository contains examples source code
 For more info about the blog : 
 * [Snippet: Google Picker Account] (http://gmariotti.blogspot.com/2013/03/snippet-google-picker-account.html)
 
+* [How to use Google Drive API v2] (http://gmariotti.blogspot.com/2013/04/simple-actions-with-google-drive-api-v2.html)
 
 ## Pre-Requisites
 
@@ -14,12 +15,13 @@ The following libraries need to cloned and manually added to project.
 
  * [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
  * [Google Play Services client library](http://developer.android.com/google/play-services/setup.html)
+ * [Google Drive API v2](https://developers.google.com/drive/quickstart-android)
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GoogleAccount/Main.gif)
  
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GoogleAccount/account.gif)
 
-
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GoogleAccount/auth1.gif)
 
 
 Credits
