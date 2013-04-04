@@ -2,11 +2,12 @@
 <resources>
 
     <string name="app_name">GoogleAccount</string>
-   
     <string name="menu_settings">Settings</string>
     <string name="menu_add">Add</string>
-   
     <string name="title_activity_gpicker">Google PickerActivity</string>
+    <string name="title_activity_sms_backup_gdrive">Sms Backup GDrive Activity</string>
     <string name="gpicker">Click Add Button to show Google picker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_gdrive">GDriveActivity</string>
 
 </resources>

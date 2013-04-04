@@ -26,7 +26,8 @@ import com.actionbarsherlock.app.SherlockListActivity;
 public class MainActivity extends SherlockListActivity {
 
 	public static final String[] options = {
-			"Snippet 1: Google Account Picker" };
+			"Snippet 1: Google Account Picker",
+			"Snippet 2: Google Drive actions"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,9 @@ public class MainActivity extends SherlockListActivity {
 		default:
 		case 0:
 			intent = new Intent(this, GPickerActivity.class);
+			break;
+		case 1:
+			intent = new Intent(this, GDriveActivity.class);
 			break;
 		}
 
