@@ -9,6 +9,8 @@ For more info about the blog :
 
 * [How to use Google Drive API v2] (http://gmariotti.blogspot.com/2013/04/simple-actions-with-google-drive-api-v2.html)
 
+* [How to backup SMS in Google Drive and use App Data Folder] (http://gmariotti.blogspot.com/2013/04/backup-sms-in-google-drive.html)
+
 ## Pre-Requisites
 
 The following libraries need to cloned and manually added to project.
@@ -23,6 +25,7 @@ The following libraries need to cloned and manually added to project.
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GoogleAccount/auth1.gif)
 
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/GoogleAccount/manageapp.png)
 
 Credits
 -------
