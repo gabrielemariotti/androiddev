@@ -27,7 +27,8 @@ public class MainActivity extends SherlockListActivity {
 
 	public static final String[] options = {
 			"Snippet 1: Google Account Picker",
-			"Snippet 2: Google Drive actions"};
+			"Snippet 2: Google Drive actions",
+			"Snippet 3: Backup Sms to Google Drive",};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,9 @@ public class MainActivity extends SherlockListActivity {
 		case 1:
 			intent = new Intent(this, GDriveActivity.class);
 			break;
+		case 2:
+			intent = new Intent(this, SmsBackupGDriveActivity.class);
+			break;	
 		}
 
 		if (intent != null)

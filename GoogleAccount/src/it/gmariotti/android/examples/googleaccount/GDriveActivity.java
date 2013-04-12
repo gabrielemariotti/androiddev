@@ -427,7 +427,7 @@ public class GDriveActivity extends SherlockListActivity {
 	}
 
 	/**
-	 * Backup sms in google drive folder
+	 * Init service
 	 */
 	private void initService() {
 		mCredential = GoogleAccountCredential.usingOAuth2(this,
