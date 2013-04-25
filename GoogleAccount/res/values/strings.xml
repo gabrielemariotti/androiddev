@@ -7,10 +7,12 @@
     <string name="menu_backup">Start Backup</string>
     <string name="title_activity_gpicker">Google PickerActivity</string>
     <string name="title_activity_sms_backup_gdrive">Sms Backup GDrive Activity</string>
+    <string name="title_activity_sms_restore_gdrive">Sms Restore GDrive Activity</string>
     <string name="gpicker">Click Add Button to show Google picker</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_gdrive">GDriveActivity</string>
 	<string name="smsbackup">Click Save Icon to start backup</string>
 	<string name="smsbackupappdatafolder">Use App data folder</string>
+	
     
 </resources>

@@ -9,6 +9,7 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
@@ -41,6 +42,14 @@
         <activity
             android:name="it.gmariotti.android.examples.googleaccount.SmsBackupGDriveActivity"
             android:label="@string/title_activity_sms_backup_gdrive"
+            android:parentActivityName="it.gmariotti.android.examples.googleaccount.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.examples.googleaccount.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.examples.googleaccount.SmsRestoreGDriveActivity"
+            android:label="@string/title_activity_sms_restore_gdrive"
             android:parentActivityName="it.gmariotti.android.examples.googleaccount.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -15,12 +15,12 @@
  *******************************************************************************/
 package it.gmariotti.android.examples.googleaccount;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Locale;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.accounts.AccountManager;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -48,19 +49,18 @@ import com.google.android.gms.common.AccountPicker;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
-import com.google.api.client.http.ByteArrayContent;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpResponse;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.Drive.Files;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
-import com.google.api.services.drive.model.ParentReference;
-import com.google.gson.JsonObject;
 
-public class SmsBackupGDriveActivity extends SherlockActivity {
+public class SmsRestoreGDriveActivity extends SherlockActivity {
 
-	private static String TAG = "SmsBackupGDriveActivity";
+	private static String TAG = "SmsRestoreGDriveActivity";
 
 	static final int REQUEST_ACCOUNT_PICKER = 1;
 	static final int REQUEST_AUTHORIZATION_FOLDER = 2;
@@ -80,147 +80,58 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_sms_backup_gdrive);
+		setContentView(R.layout.activity_sms_restore_gdrive);
 		// Show the Up button in the action bar.
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
-	/*
-	 * 
-	 */
-	private JSONObject readSmsInbox() throws JSONException {
-		Cursor cursor = getSmsInboxCursor();
-		// StringBuilder messages = new StringBuilder();
-		JSONArray messages = new JSONArray();
+	
+	private String getContentFile(File file) {
+		String result;
 
-		String and = "";
+		if (file != null && file.getDownloadUrl() != null
+				&& file.getDownloadUrl().length() > 0) {
 
-		if (cursor != null) {
-			final String[] columns = cursor.getColumnNames();
-			while (cursor.moveToNext()) {
-				// messages.append(and);
-				JSONObject msg = new JSONObject();
-				// long id = cursor.getLong(SmsQuery._ID);
-				long contactId = cursor.getLong(SmsQuery.PERSON);
-				String address = cursor.getString(SmsQuery.ADDRESS);
-				// long threadId = cursor.getLong(SmsQuery.THREAD_ID);
-				// final long date = cursor.getLong(SmsQuery.DATE);
+			try {
+				GenericUrl downloadUrl = new GenericUrl(file.getDownloadUrl());
 
-				final Map<String, String> msgMap = new HashMap<String, String>(
-						columns.length);
+				HttpResponse resp = mService.getRequestFactory()
+						.buildGetRequest(downloadUrl).execute();
+				InputStream inputStream = null;
 
-				for (int i = 0; i < columns.length; i++) {
-					String value = cursor.getString(i);
-					msgMap.put(columns[i], cursor.getString(i));
-					/*
-					 * messages.append(columns[i]); messages.append("=");
-					 * messages.append(value); messages.append(";;");
-					 */
-					msg.put(columns[i], value);
+				try {
+					inputStream = resp.getContent();
+					BufferedReader reader = new BufferedReader(
+							new InputStreamReader(inputStream));
+					StringBuilder content = new StringBuilder();
+					char[] buffer = new char[1024];
+					int num;
 
-				}
-				// and = "\n";
-
-				/**
-				 * Retrieve display name
-				 * 
-				 */
-				String displayName = address;
-
-				if (contactId > 0) {
-					// Retrieve from Contacts with contact id
-					Cursor contactCursor = tryOpenContactsCursorById(contactId);
-					if (contactCursor != null) {
-						if (contactCursor.moveToFirst()) {
-							displayName = contactCursor
-									.getString(RawContactsQuery.DISPLAY_NAME);
-						} else {
-							contactId = 0;
-						}
-						contactCursor.close();
+					while ((num = reader.read(buffer)) > 0) {
+						content.append(buffer, 0, num);
 					}
-				} else {
-					if (contactId <= 0) {
-						// Retrieve with address
-						Cursor contactCursor = tryOpenContactsCursorByAddress(address);
-						if (contactCursor != null) {
-							if (contactCursor.moveToFirst()) {
-								displayName = contactCursor
-										.getString(ContactsQuery.DISPLAY_NAME);
-							}
-							contactCursor.close();
-						}
+					result = content.toString();
+
+				} finally {
+					if (inputStream != null) {
+						inputStream.close();
 					}
 				}
-				/*
-				 * messages.append("displayName"); messages.append("=");
-				 * messages.append(displayName); messages.append(";;");
-				 * messages.append("||");
-				 */
-				msg.put("displayName", displayName);
-
-				messages.put(msg);
-
+			} catch (IOException e) {
+				// An error occurred.
+				e.printStackTrace();
+				return null;
 			}
-		}
-
-		JSONObject fileBackupTest = new JSONObject();
-		fileBackupTest.put("messages", messages);
-		return fileBackupTest;
-	}
-
-	/**
-	 * Retrieve sms
-	 * 
-	 * @return
-	 */
-	private Cursor getSmsInboxCursor() {
-
-		try {
-			return getContentResolver().query(
-					TelephonyProviderConstants.Sms.CONTENT_URI,
-					SmsQuery.PROJECTION, SmsQuery.WHERE_INBOX, null,
-					TelephonyProviderConstants.Sms.DEFAULT_SORT_ORDER);
-		} catch (Exception e) {
-			Log.e(TAG,
-					"Error accessing conversations cursor in SMS/MMS provider",
-					e);
+		} else {
+			// The file doesn't have any content stored on Drive.
 			return null;
 		}
-	}
 
-	private Cursor tryOpenContactsCursorById(long contactId) {
-		try {
-			return getContentResolver().query(
-					ContactsContract.RawContacts.CONTENT_URI.buildUpon()
-							.appendPath(Long.toString(contactId)).build(),
-					RawContactsQuery.PROJECTION, null, null, null);
-
-		} catch (Exception e) {
-			Log.e(TAG, "Error accessing contacts provider", e);
-			return null;
-		}
-	}
-
-	private Cursor tryOpenContactsCursorByAddress(String phoneNumber) {
-		try {
-			return getContentResolver().query(
-					ContactsContract.PhoneLookup.CONTENT_FILTER_URI.buildUpon()
-							.appendPath(Uri.encode(phoneNumber)).build(),
-					ContactsQuery.PROJECTION, null, null, null);
-
-		} catch (Exception e) {
-			// Can be called by the content provider
-			// java.lang.IllegalArgumentException: URI:
-			// content://com.android.contacts/phone_lookup/
-			Log.w(TAG, "Error looking up contact name", e);
-			return null;
-		}
+		return result;
 	}
 
 	private interface SmsQuery {
-		String[] PROJECTION = {
-				TelephonyProviderConstants.Sms._ID,
+		String[] PROJECTION = { TelephonyProviderConstants.Sms._ID,
 				TelephonyProviderConstants.Sms.ADDRESS,
 				TelephonyProviderConstants.Sms.PERSON,
 				TelephonyProviderConstants.Sms.THREAD_ID,
@@ -228,7 +139,7 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 				TelephonyProviderConstants.Sms.DATE,
 				TelephonyProviderConstants.Sms.TYPE,
 				TelephonyProviderConstants.Sms.READ,
-				 TelephonyProviderConstants.Sms.DATE_SENT,
+				TelephonyProviderConstants.Sms.DATE_SENT,
 				TelephonyProviderConstants.Sms.ERROR_CODE,
 				TelephonyProviderConstants.Sms.STATUS,
 				TelephonyProviderConstants.Sms.SUBJECT,
@@ -278,52 +189,6 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 				new String[] { GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE }, true,
 				null, null, null, null);
 		startActivityForResult(googlePicker, REQUEST_ACCOUNT_PICKER);
-	}
-
-	/**
-	 * Create a folder
-	 */
-	/*
-	 * private void createFolder() { Thread t = new Thread(new Runnable() {
-	 * 
-	 * @Override public void run() {
-	 * 
-	 * if (mService == null) initService();
-	 * 
-	 * try { File folder = _createFolder(); } catch
-	 * (UserRecoverableAuthIOException e) { Intent intent = e.getIntent();
-	 * startActivityForResult(intent, REQUEST_AUTHORIZATION_FOLDER); } catch
-	 * (IOException e) { Log.e(TAG, "Error in create folder", e); }
-	 * 
-	 * } }); t.start();
-	 * 
-	 * }
-	 */
-
-	/**
-	 * internal create Folder
-	 * 
-	 * @return
-	 * @throws UserRecoverableAuthIOException
-	 * @throws IOException
-	 */
-	private File _createFolder() throws UserRecoverableAuthIOException,
-			IOException {
-
-		if (useDataFolder)
-			return null;
-
-		File folder = _isFolderExists();
-		if (folder != null)
-			return folder;
-
-		File body = new File();
-		body.setTitle(FOLDER_NAME);
-		body.setMimeType(MIME_FOLDER);
-
-		File file = mService.files().insert(body).execute();
-		return file;
-
 	}
 
 	/**
@@ -379,7 +244,7 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 	/**
 	 * Backup SMSs to GDrive
 	 */
-	private void backupSmsToGDrive() {
+	private void restoreSmsFromGDrive() {
 
 		// Check for use data folder
 		CheckBox checkbox = (CheckBox) findViewById(R.id.appdatafolder);
@@ -395,44 +260,77 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 
 					showToast("Start process");
 
-					// Retrieve sms
-					JSONObject messages = readSmsInbox();
-					Log.i(TAG, messages.toString());
+					Map<String, Map<String, String>> messages = new HashMap<String, Map<String, String>>();
 
 					// Create sms backup Folder
 					File folder = null;
 					if (mService == null)
 						initService();
 
-					if (!useDataFolder)
-						folder = createBackupFolder();
+					String folderId = "appdata";
 
-					// File's metadata.
-					String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
-							Locale.ITALIAN).format(new Date());
-
-					File body = new File();
-					body.setTitle("Sms Backup " + timeStamp);
-					body.setMimeType("text/plain");
-					body.setDescription("Backup sms");
-
-					// Set the parent folder.
-					if (useDataFolder)
-						body.setParents(Arrays.asList(new ParentReference()
-								.setId("appdata")));
-					else
-						body.setParents(Arrays.asList(new ParentReference()
-								.setId(folder.getId())));
-
-					ByteArrayContent content = ByteArrayContent.fromString(
-							"text/plain", messages.toString());
-					File file = mService.files().insert(body, content)
-							.execute();
-
-					if (file != null) {
-						showToast("Sms backup uploaded: " + file.getTitle());
+					if (!useDataFolder) {
+						folder = _isFolderExists();
+						if (folder != null)
+							folderId = folder.getId();
 					}
 
+					if (folderId != null) {
+
+						Files.List request = mService
+								.files()
+								.list()
+								.setQ("mimeType = '" + MIME_TEXT_PLAIN
+										+ "' and '" + folderId
+										+ "' in parents ");
+
+						FileList files = request.execute();
+
+						if (files != null) {
+							for (File file : files.getItems()) {
+
+								// TODO: get only a file
+
+								// Meta data
+								Log.i(TAG, "Title: " + file.getTitle());
+								Log.i(TAG,
+										"Description: " + file.getDescription());
+								Log.i(TAG, "MIME type: " + file.getMimeType());
+
+								String content = getContentFile(file);
+								if (content != null) {
+
+									// Parse Json
+									JSONObject json = new JSONObject(content);
+									JSONArray msgs = (JSONArray) json
+											.get("messages");
+									for (int i = 0; i < msgs.length(); i++) {
+
+										JSONObject json_dataSms = msgs
+												.getJSONObject(i);
+										Iterator<String> keys = json_dataSms
+												.keys();
+										Map<String, String> message = new HashMap<String, String>();
+										String idKey = null;
+										while (keys.hasNext()) {
+											String key = (String) keys.next();
+											message.put(key,
+													json_dataSms.getString(key));
+
+											idKey = json_dataSms
+													.getString(TelephonyProviderConstants.Sms._ID);
+										}
+										// Put message in hashMap
+										messages.put(idKey, message);
+									}
+									restore(messages);
+									continue;
+								}
+
+							}
+						}
+
+					}
 				} catch (UserRecoverableAuthIOException e) {
 					Intent intent = e.getIntent();
 					startActivityForResult(intent, REQUEST_AUTHORIZATION_FOLDER);
@@ -441,22 +339,88 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 				} catch (JSONException e) {
 					Log.e("TAG", "Error in backup", e);
 				}
+
 			}
 
-			private File createBackupFolder() {
+			private void restore(Map<String, Map<String, String>> messages) {
 
-				File folder = null;
-				try {
-					folder = _createFolder();
+				if (messages != null) {
 
-				} catch (UserRecoverableAuthIOException e) {
-					Intent intent = e.getIntent();
-					startActivityForResult(intent, REQUEST_AUTHORIZATION_FOLDER);
-				} catch (IOException e) {
-					Log.e(TAG, "Error in create folder", e);
+					for (Map.Entry<String, Map<String, String>> entry : messages
+							.entrySet()) {
+						String idkey = entry.getKey();
+						Map<String, String> msg = entry.getValue();
+						String type = msg
+								.get(TelephonyProviderConstants.Sms.TYPE);
+
+						ContentValues values = new ContentValues();
+						values.put(TelephonyProviderConstants.Sms.BODY,
+								msg.get(TelephonyProviderConstants.Sms.BODY));
+						values.put(TelephonyProviderConstants.Sms.ADDRESS,
+								msg.get(TelephonyProviderConstants.Sms.ADDRESS));
+						values.put(TelephonyProviderConstants.Sms.TYPE,
+								msg.get(TelephonyProviderConstants.Sms.TYPE));
+						values.put(TelephonyProviderConstants.Sms.PROTOCOL, msg
+								.get(TelephonyProviderConstants.Sms.PROTOCOL));
+						values.put(
+								TelephonyProviderConstants.Sms.SERVICE_CENTER,
+								msg.get(TelephonyProviderConstants.Sms.SERVICE_CENTER));
+						values.put(TelephonyProviderConstants.Sms.DATE,
+								msg.get(TelephonyProviderConstants.Sms.DATE));
+						values.put(TelephonyProviderConstants.Sms.STATUS,
+								msg.get(TelephonyProviderConstants.Sms.STATUS));
+						// values.put(TelephonyProviderConstants.Sms.THREAD_ID,
+						// msg.get(TelephonyProviderConstants.Sms.THREAD_ID));
+						values.put(TelephonyProviderConstants.Sms.READ,
+								msg.get(TelephonyProviderConstants.Sms.READ));
+						values.put(TelephonyProviderConstants.Sms.DATE_SENT,
+								msg.get(TelephonyProviderConstants.Sms.DATE_SENT));
+
+						/*
+						 * for (Map.Entry<String, String> fields :
+						 * msg.entrySet()) { String idfield = fields.getKey();
+						 * String valueField = fields.getValue();
+						 * 
+						 * values.put(idfield,valueField); }
+						 */
+
+						if (type != null
+								&& (Integer.parseInt(type) == TelephonyProviderConstants.Sms.MESSAGE_TYPE_INBOX || Integer
+										.parseInt(type) == TelephonyProviderConstants.Sms.MESSAGE_TYPE_SENT)
+								&& !smsExists(values)) {
+							final Uri uri = getContentResolver().insert(
+									TelephonyProviderConstants.Sms.CONTENT_URI,
+									values);
+							if (uri != null) {
+								showToast("Restored message="
+										+ msg.get(TelephonyProviderConstants.Sms.BODY));
+							}
+						} else {
+							Log.d(TAG, "ignore");
+						}
+					}
+
 				}
+			}
 
-				return folder;
+			private boolean smsExists(ContentValues values) {
+				// just assume equality on date+address+type
+				Cursor c = getContentResolver()
+						.query(TelephonyProviderConstants.Sms.CONTENT_URI,
+								new String[] { "_id" },
+								"date = ? AND address = ? AND type = ?",
+								new String[] {
+										values.getAsString(TelephonyProviderConstants.Sms.DATE),
+										values.getAsString(TelephonyProviderConstants.Sms.ADDRESS),
+										values.getAsString(TelephonyProviderConstants.Sms.TYPE) },
+								null);
+
+				boolean exists = false;
+				if (c != null) {
+					exists = c.getCount() > 0;
+					c.close();
+				}
+				return exists;
 			}
 
 		});
@@ -488,14 +452,14 @@ public class SmsBackupGDriveActivity extends SherlockActivity {
 						.commit();
 
 				if (mAccountName != null) {
-					backupSmsToGDrive();
+					restoreSmsFromGDrive();
 				}
 
 			}
 			break;
 		case REQUEST_AUTHORIZATION_FOLDER:
 			if (resultCode == RESULT_OK) {
-				backupSmsToGDrive();
+				restoreSmsFromGDrive();
 			} else {
 				startActivityForResult(mCredential.newChooseAccountIntent(),
 						REQUEST_ACCOUNT_PICKER);
