@@ -11,6 +11,8 @@ For more info about the blog :
 
 * [How to backup SMS in Google Drive and use App Data Folder] (http://gmariotti.blogspot.com/2013/04/backup-sms-in-google-drive.html)
 
+* [How to restore SMS from Google Drive](http://gmariotti.blogspot.it/2013/04/restore-sms-from-google-drive.html)
+
 ## Pre-Requisites
 
 The following libraries need to cloned and manually added to project.
