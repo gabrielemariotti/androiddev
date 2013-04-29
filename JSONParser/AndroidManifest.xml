@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.gmariotti.android.example.parser.json"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="it.gmariotti.android.example.parser.json.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.example.parser.json.WriteJsonActivity"
+            android:label="@string/title_activity_write_json"
+            android:parentActivityName="it.gmariotti.android.example.parser.json.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.example.parser.json.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.example.parser.json.ReadJsonActivity"
+            android:label="@string/title_activity_read_json"
+            android:parentActivityName="it.gmariotti.android.example.parser.json.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.example.parser.json.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.example.parser.json.WriteJsonGsonActivity"
+            android:label="@string/title_activity_write_jsongson"
+            android:parentActivityName="it.gmariotti.android.example.parser.json.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.example.parser.json.MainActivity" />
+        </activity>
+        <activity
+            android:name="it.gmariotti.android.example.parser.json.ReadJsonGsonActivity"
+            android:label="@string/title_activity_read_jsongson"
+            android:parentActivityName="it.gmariotti.android.example.parser.json.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.gmariotti.android.example.parser.json.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

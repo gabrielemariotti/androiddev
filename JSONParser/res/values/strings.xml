@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JSONParser</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_save">Write Json</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="start">Click save icon to write Json</string>
+    <string name="startRead">Click save icon to read Json</string>
+    <string name="label">Json text:</string>
+    
+    <string name="title_activity_write_json">WriteJsonActivity</string>
+    <string name="title_activity_read_json">ReadJsonActivity</string>
+    <string name="title_activity_write_jsongson">WriteJsonActivity with Gson</string>
+    <string name="title_activity_read_jsongson">ReadJsonActivity with Gson</string>
+    
+</resources>
