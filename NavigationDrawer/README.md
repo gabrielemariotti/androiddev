@@ -1,9 +1,9 @@
-# How to work with Navigation Drawer in Android
+# How to work with Navigation Drawer 
 
 This repository contains examples source code
 
 For more info about the blog : 
-* [Creating a Navigation Drawer] ()
+* [Creating a Navigation Drawer] (http://gmariotti.blogspot.com/2013/05/creating-navigation-drawer.html)
 
 ## Pre-Requisites
 
