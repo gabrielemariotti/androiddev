@@ -79,6 +79,8 @@ public class MainActivity extends Activity {
 					"drawable", this.getPackageName());
 
 			NsMenuItemModel mItem = new NsMenuItemModel(id_title, id_icon);
+			if (res==1) mItem.counter=12; //it is just an example...
+			if (res==3) mItem.counter=3; //it is just an example...
 			mAdapter.addItem(mItem);
 			res++;
 		}
@@ -170,6 +172,7 @@ public class MainActivity extends Activity {
 	        mDrawerList.setItemChecked(position, true);
 	        String text= "menu click... should be implemented";
 	        Toast.makeText(MainActivity.this, text , Toast.LENGTH_LONG).show();
+	        //You should reset item counter 
 	        mDrawer.closeDrawer(mDrawerList);
 			
 		}
