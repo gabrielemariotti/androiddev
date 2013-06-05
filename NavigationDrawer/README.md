@@ -4,6 +4,7 @@ This repository contains examples source code
 
 For more info about the blog : 
 * [Creating a Navigation Drawer] (http://gmariotti.blogspot.com/2013/05/creating-navigation-drawer.html)
+* [Navigation Drawer with counter] (http://gmariotti.blogspot.it/2013/06/navigation-drawer-with-counter.html)
 
 ## Pre-Requisites
 
@@ -12,7 +13,7 @@ The following libraries need to cloned and manually added to PreferenceExamples 
  * [SUPPORT LIBRARY VER. 13]
  
  
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/NavigationDrawer/page4.gif)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/NavigationDrawer/Counter.jpg)
 
 Credits
 -------
