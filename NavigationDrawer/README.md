@@ -8,7 +8,7 @@ For more info about the blog :
 
 ## Pre-Requisites
 
-The following libraries need to cloned and manually added to PreferenceExamples as library projects.
+The following libraries need to manually added.
 
  * [SUPPORT LIBRARY VER. 13]
  
