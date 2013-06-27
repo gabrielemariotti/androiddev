@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ListViewPerformance</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_list_activity1">ListActivity1</string>
+    <string name="title_activity_list_activity2">ListActivity2</string>
+    <string name="title_activity_list_activity3">ListActivity3</string>
+
+</resources>
