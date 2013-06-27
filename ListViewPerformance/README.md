@@ -3,7 +3,7 @@
 This repository contains examples source code
 
 For more info about the blog : 
-* [Creating a Navigation Drawer] (http://gmariotti.blogspot.com/2013/06/tips-for-listview-view-recycling-use.html)
+* [Tips for ListView: View recycling, use the ViewHolder....] (http://gmariotti.blogspot.com/2013/06/tips-for-listview-view-recycling-use.html)
 
 ## Pre-Requisites
 
