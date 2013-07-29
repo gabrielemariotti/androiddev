@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ns_menu_items">
+        <item>ns_menu_snippet1</item>
+        <item>ns_menu_snippet2</item>
+        <item>ns_menu_snippet3</item>
+        <item>ns_menu_snippet4</item>
+        <item>ns_menu_snippet5</item>
+        <item>ns_menu_snippet6</item>
+        <item>ns_menu_snippet7</item>
+    </string-array>
+
+    <array name="ns_menu_items_icon">
+        <item>ic_action_settings</item>
+        <item>ic_save</item>
+        <item>action_add</item>
+        <item>ic_launcher_</item>
+        <item>action_add</item>
+        <item>ic_action_settings</item>
+        <item>ic_launcher_</item>
+    </array>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Navigation Drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="drawer_text">Navigation Drawer example.</string>
+    
+    <string name="ns_menu_main_header">Title</string>
+    <string name="ns_menu_main_header2">Title 2</string>
+    
+    <string name="ns_menu_open">Navigation Drawer Open Menu</string>
+    <string name="ns_menu_close">Navigation Drawer</string>
+    
+    <string name="ns_menu_snippet1">Snippet 1</string>
+    <string name="ns_menu_snippet2">Snippet 2</string>
+    <string name="ns_menu_snippet3">Snippet 3</string>
+    <string name="ns_menu_snippet4">Snippet 4</string>
+    <string name="ns_menu_snippet5">Snippet 5</string>
+    <string name="ns_menu_snippet6">Snippet 6</string>
+    <string name="ns_menu_snippet7">Snippet 7</string>
+
+</resources>
