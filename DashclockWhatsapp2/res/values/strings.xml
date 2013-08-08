@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="app_name">DashClock Whatsapp Extension</string>
+
+    <!-- DashClock config -->
+    <string name="extension_title">Whatsapp Notifications</string>
+    <string name="extension_description">Display Whatsapp notifications</string>
+    <string name="extension_titlePref">Settings</string>
+
+ 	<!-- Service Listener -->
+    <string name="service_name">Dashclock Whatsapp Extension Listener</string>
+   
+    <!-- DashClock setting -->
+    <string name="pref_config">Config</string>
+    <string name="pref_config_setting">Enable Notifications</string>
+    <string name="pref_config_setting_summary">You have to enable notifications listener in Android Setting\'s menu</string>
+    
+    <!-- DashClock strings -->
+    <plurals name="notifications">
+        <item quantity="zero">No Notifications</item>
+        <item quantity="one">1 new message</item>
+        <item quantity="two">Two new messages</item>
+        <item quantity="few">Few new messages</item>
+        <item quantity="many">Many new messages</item>
+        <item quantity="other">%d new messages</item>
+    </plurals>
+</resources>
