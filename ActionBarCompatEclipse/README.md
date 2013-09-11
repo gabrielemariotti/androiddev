@@ -1,17 +1,21 @@
-androiddev
-==========
+# How to work with ActionBarCompat
 
-Quick tips/tutorials for Android developers.
+This repository contains examples source code
 
-This repository contains examples and source code repository for Ongoing dev blog.
+For more info about the blog : 
+* [How to add ActionBarCompat to your project] (http://gmariotti.blogspot.com/2013/07/how-to-add-actionbarcompat-to-your.html)
+* [ActionBarCompat and NavigationDrawer] (http://gmariotti.blogspot.com/2013/07/actionbarcompat-and-navigationdrawer.html)
 
-For more info about the blog : https://gmariotti.blogspot.com
+## Pre-Requisites
 
+The following libraries need to manually added.
 
+ * [com.android.support:appcompat-v7:18.0.+]
+ 
 Credits
 -------
 
-Author: Gabriele Mariotti
+Author: Gabriele Mariotti (gabri.mariotti@gmail.com)
 
 License
 -------
