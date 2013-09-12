@@ -21,12 +21,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 
 	LinearLayout mLinearLayout;
 	LinearLayout mLinearLayoutHeader;
+	ValueAnimator mAnimator;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,27 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		mLinearLayout = (LinearLayout) findViewById(R.id.expandable);
-		mLinearLayout.setVisibility(View.GONE);
+	    //mLinearLayout.setVisibility(View.GONE);
 		mLinearLayoutHeader = (LinearLayout) findViewById(R.id.header);
+		
+		//Add onPreDrawListener
+		mLinearLayout.getViewTreeObserver().addOnPreDrawListener(
+                new ViewTreeObserver.OnPreDrawListener() {
+            
+            @Override
+            public boolean onPreDraw() {
+                mLinearLayout.getViewTreeObserver().removeOnPreDrawListener(this);
+                mLinearLayout.setVisibility(View.GONE);
+        
+                final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        		final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        		mLinearLayout.measure(widthSpec, heightSpec);
+
+        		mAnimator = slideAnimator(0, mLinearLayout.getMeasuredHeight());
+                return true;
+            }
+        });
+		
 		
 		mLinearLayoutHeader.setOnClickListener(new View.OnClickListener() {
  
@@ -54,12 +75,15 @@ public class MainActivity extends Activity {
 	private void expand() {
 		//set Visible
 		mLinearLayout.setVisibility(View.VISIBLE);
-
+		
+		/* Remove and used in preDrawListener
 		final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
 		final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
 		mLinearLayout.measure(widthSpec, heightSpec);
 
-		ValueAnimator mAnimator = slideAnimator(0, mLinearLayout.getMeasuredHeight());
+		mAnimator = slideAnimator(0, mLinearLayout.getMeasuredHeight());
+		*/
+		
 		mAnimator.start();
 	}
 	
