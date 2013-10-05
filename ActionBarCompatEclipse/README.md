@@ -11,6 +11,7 @@ For more info about the blog :
 The following libraries need to manually added.
 
  * [com.android.support:appcompat-v7:18.0.+]
+ * [compile 'com.android.support:support-v4:18.0.0']
  
 Credits
 -------
