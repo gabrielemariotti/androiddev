@@ -6,13 +6,13 @@ This repository contains example source code
 
 For more info about the blog : 
 * [NotificationListenerService and kitkat]
-
+http://gmariotti.blogspot.com/2013/11/notificationlistenerservice-and-kitkat.html
 
 **It uses a Notification Listener Service (4.3+). You have to enable it in Android Settings**
 
 
  
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/NotificationListener/image.png)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/NotificationListener44/image.png)
 
 
 Credits
