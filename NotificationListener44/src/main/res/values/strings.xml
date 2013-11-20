@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notification Listener</string>
+    <string name="service_name">Notification Listener Service</string>
+    <string name="action_autorize">Autorize</string>
+</resources>
