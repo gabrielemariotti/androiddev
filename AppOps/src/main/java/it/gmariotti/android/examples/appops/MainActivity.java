@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
      * Uses AppOpsManager
      */
     private void initAppOpsManager() {
-
+        //Don't use this code!
         String packageName = "it.gmariotti.android.examples.appops";
 
         AppOpsManager mAppOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
@@ -40,9 +40,15 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
         }
 
-        int permission= mAppOps.checkOpNoThrow(AppOpsManager.OPSTR_FINE_LOCATION,mPackageInfo.applicationInfo.uid,packageName);
+        //mAppOps.checkPackage(mPackageInfo.applicationInfo.uid,packageName);
+
+        int permission= mAppOps.noteOp(AppOpsManager.OPSTR_COARSE_LOCATION, mPackageInfo.applicationInfo.uid, mPackageInfo.packageName);
         Log.d("OPS","permission="+permission);
 
+        /*
+        int permission2= mAppOps.checkOp(AppOpsManager.OPSTR_COARSE_LOCATION, mPackageInfo.applicationInfo.uid, mPackageInfo.packageName);
+        Log.d("OPS","permission2="+permission2);
+*       */
     }
 
     /**
