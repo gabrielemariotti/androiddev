@@ -1,15 +1,12 @@
-# AppOpsManager with Android 4.4
-
-AppOpsManager and kitkat.
+# Restricted Profile Settings
 
 This repository contains example source code
 
 For more info about the blog : 
-* [Quick tips about AppOpsManager and 4.4](http://gmariotti.blogspot.com/2013/11/quick-tips-about-appopsmanager-and-44.html)
+* [Restricted Profiles Settings](http://gmariotti.blogspot.com/2013/12/restricted-profiles-settings.html)
 
 
- 
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/AppOps/image.png)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/RestrictedProfileSettings/image.png)
 
 
 Credits
