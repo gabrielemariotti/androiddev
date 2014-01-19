@@ -3,7 +3,7 @@
 This repository contains examples source code
 
 For more info about the blog : 
-* [Drawing shapes with fingers] ()
+* [Drawing shapes with fingers] (http://gmariotti.blogspot.it/2014/01/drawing-shapes-with-fingers.html)
 
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/ShapeFinger/image.png)
