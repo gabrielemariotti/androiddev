@@ -6,7 +6,7 @@ For more info about the blog :
 * [Align a TextView around an image] (http://gmariotti.blogspot.com/2014/03/snippet-align-textview-around-image.html)
 
 
-![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TextAndImage/textRpund.png)
+![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/TextAndImage/textRound.png)
 
 Credits
 -------
