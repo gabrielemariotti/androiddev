@@ -91,8 +91,9 @@ public class MainActivity extends Activity {
         Rect bounds = new Rect();
         mTextView.getPaint().getTextBounds(plainText.substring(0,10), 0, 1, bounds);
 
-        float textLineHeight = mTextView.getPaint().getTextSize();
-        lines = (int) (finalHeight/textLineHeight);
+        //float textLineHeight = mTextView.getPaint().getTextSize();
+        float fontSpacing=mTextView.getPaint().getFontSpacing();
+        lines = (int) (finalHeight/(fontSpacing));
 
         /**
          * Build the layout with LeadingMarginSpan2
