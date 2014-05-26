@@ -4,7 +4,7 @@ This repository contains examples source code
 
 For more info about the blog : 
 * [#0: Configure the GoogleApiClient with Google Play Services.] (http://gmariotti.blogspot.it/2014/05/gplayservices-0-configure.html)
-* [#1: Save to Google Drive.] ()
+* [#1: Save to Google Drive.] (http://gmariotti.blogspot.com/2014/05/gplayservices-1-save-to-google-drive.html)
 
 ![ScreenShot](https://github.com/gabrielemariotti/androiddev/raw/master/playservices/image.png)
 
